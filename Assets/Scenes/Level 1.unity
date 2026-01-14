@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 1434081667}
   - component: {fileID: 1434081669}
   - component: {fileID: 1434081670}
+  - component: {fileID: 1434081671}
   m_Layer: 0
   m_Name: character_purple_idle
   m_TagString: Untagged
@@ -514,6 +515,18 @@ PolygonCollider2D:
       - {x: -0.2265625, y: -0.5}
       - {x: 0.1875, y: -0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &1434081671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434081666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e835b476c325d5a4e89af0936bc7ff8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1809666562
 GameObject:
   m_ObjectHideFlags: 0
