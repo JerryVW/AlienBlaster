@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float _jumpEndTime = 0.5f;
+    [SerializeField] private float _horizontalVelocity = 3;
     [SerializeField] private float _jumpVelocity = 5;
     [SerializeField] private float _jumpDuration = 0.5f;
     public bool IsGrounded;
@@ -23,10 +24,11 @@ public class Player : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         Vector2 origin =  new Vector2(transform.position.x, transform.position.y - spriteRenderer.bounds.extents.y);
-        var hit = Physics2D.Raycast(origin, Vector2.down, 0.1f);
+        var hit = Physics2D.Raycast(origin, Vector2.down, 0.1f, LayerMask.GetMask("Ground"));
         if (hit.collider)
         {
             IsGrounded = true;
+            
         }
         else
         {
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour
         {
             vertical = _jumpVelocity;
         }
+
+        horizontal *= _horizontalVelocity;
         rb.velocity = new Vector2(horizontal, vertical);
     }
 }
