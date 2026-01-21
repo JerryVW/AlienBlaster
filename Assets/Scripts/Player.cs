@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     public bool IsGrounded;
 
-    
+
     SpriteRenderer _spriteRenderer;
     AudioSource _audioSource;
     float _horizontal;
@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
         {
             _jumpEndTime = Time.time + _jumpDuration;
             _jumpsRemaining--;   
+
+
+            _audioSource.pitch = _jumpsRemaining > 0 ? 1 : 1.2f;
             _audioSource.Play();
         }
         if (Input.GetButton("Fire1") && _jumpEndTime > Time.time)
