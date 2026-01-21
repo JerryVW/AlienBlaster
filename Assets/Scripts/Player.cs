@@ -15,15 +15,20 @@ public class Player : MonoBehaviour
     [SerializeField] float _footOffset = 0.35f;
 
     public bool IsGrounded;
+
+    
     SpriteRenderer _spriteRenderer;
+    AudioSource _audioSource;
     float _horizontal;
     Animator _animator;
     int _jumpsRemaining;
+    
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void OnDrawGizmos()
@@ -58,6 +63,7 @@ public class Player : MonoBehaviour
         {
             _jumpEndTime = Time.time + _jumpDuration;
             _jumpsRemaining--;   
+            _audioSource.Play();
         }
         if (Input.GetButton("Fire1") && _jumpEndTime > Time.time)
             vertical = _jumpVelocity;
